@@ -1,65 +1,144 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="min-h-screen bg-black text-white">
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center min-h-screen px-6 text-center">
+        <div className="w-36 h-36 rounded-full overflow-hidden border-4 border-cyan-400 shadow-lg">
+          <img
+            src="/profile.jpg"
+            alt="Rudraaksh Singh"
+            className="w-full h-full object-cover"
+          />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+
+        <h1 className="mt-6 text-5xl font-bold">
+          Rudraaksh <span className="text-cyan-400">Singh</span>
+        </h1>
+
+        <p className="mt-4 max-w-2xl text-lg text-gray-300">
+          Full Stack Developer • React • Next.js • Supabase • UI Designer
+        </p>
+
+        <div className="flex gap-4 mt-8">
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#projects"
+            className="px-6 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-600 transition"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
+            View Projects
           </a>
+
           <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact"
+            className="px-6 py-3 rounded-xl border border-white hover:bg-white hover:text-black transition"
           >
-            Documentation
+            Contact Me
           </a>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* About */}
+      <section id="about" className="py-24 px-6 max-w-6xl mx-auto">
+        <h2 className="text-4xl font-bold mb-8">About Me</h2>
+
+        <p className="text-gray-300 leading-8">
+          I'm a passionate Full Stack Developer specializing in React,
+          Next.js, Tailwind CSS, and Supabase. I enjoy creating modern,
+          responsive web applications with elegant UI and excellent user
+          experience.
+        </p>
+      </section>
+
+      {/* Skills */}
+      <section className="py-24 px-6 bg-neutral-900">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold mb-10">Skills</h2>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              "React",
+              "Next.js",
+              "TypeScript",
+              "Tailwind CSS",
+              "Supabase",
+              "Node.js",
+              "Firebase",
+              "Git"
+            ].map((skill) => (
+              <div
+                key={skill}
+                className="bg-neutral-800 rounded-2xl p-6 text-center hover:scale-105 transition"
+              >
+                {skill}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Projects */}
+      <section id="projects" className="py-24 px-6 max-w-6xl mx-auto">
+        <h2 className="text-4xl font-bold mb-10">Projects</h2>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            {
+              title: "RChat",
+              desc: "Telegram-inspired chat application."
+            },
+            {
+              title: "Portfolio",
+              desc: "Modern animated portfolio website."
+            },
+            {
+              title: "Dashboard",
+              desc: "Analytics dashboard using Next.js."
+            }
+          ].map((project) => (
+            <div
+              key={project.title}
+              className="rounded-2xl bg-neutral-900 p-6 border border-neutral-700 hover:border-cyan-400 transition"
+            >
+              <h3 className="text-2xl font-semibold">
+                {project.title}
+              </h3>
+
+              <p className="mt-3 text-gray-400">
+                {project.desc}
+              </p>
+
+              <button className="mt-6 text-cyan-400 hover:underline">
+                View Project →
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section
+        id="contact"
+        className="py-24 px-6 bg-neutral-900 text-center"
+      >
+        <h2 className="text-4xl font-bold mb-6">
+          Let's Work Together
+        </h2>
+
+        <p className="text-gray-400 mb-8">
+          Have an idea? Let's build something amazing.
+        </p>
+
+        <a
+          href="mailto:your@email.com"
+          className="inline-block px-8 py-4 rounded-xl bg-cyan-500 hover:bg-cyan-600 transition"
+        >
+          Contact Me
+        </a>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 text-center border-t border-neutral-800 text-gray-500">
+        © 2026 Rudraaksh Singh. All Rights Reserved.
+      </footer>
+    </main>
   );
 }
